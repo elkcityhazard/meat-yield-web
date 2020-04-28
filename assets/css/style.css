@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*************
+**Typography**
+**************/
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    margin: 0;
+    min-height: 100vh;
+    padding: 0 30px;
+
+}
+
+.main-content {
+    align-items: flex-start;  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.panel {
+    box-shadow: 0 0 15px 2px rgba(0, 0 ,0, 0.5);
+    margin: 40px auto;
+}
+
+.panel h3 {
+    margin: 40px auto;
+    text-align: center;
+}
+
+one, two, three {
+    flex: 1 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****************
+**Form Styles****
+*****************/
+
+.form-entry {
+    width: 100%;    
+}
+
+label, input {
+    display: block;
+    margin: 10px auto;
+    width: 50%;
+}
+
+button {
+    display: block;
+    float: left;
+    margin: 20px auto;
+    width: 50%;
+    
+}

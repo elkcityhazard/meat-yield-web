@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meat Cut Test Utility</title>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+</head>
+<body>
+   <div class="wrapper">
+       <main class="main-content">
+           <section class="panel one">
+              <h3>Sub Primal Data</h3>
+               <form class="form-entry" id="primaryForm">
+                  <fieldset>
+                  <legend>Enter Subprimal Information</legend>
+                   <label for="name">Name: </label>
+                   <input id="name" name="data_name" placeholder="Name Of Sub Primal"></input>
+                   <label for="apc">As Purchased Cost / LB: </label>
+                   <input id="apc" name="data_apc" placeholder="Enter As Purchased Cost / LB"></input>
+                   <label for="baggedWeight">Bagged Weight: </label>
+                   <input id="baggedWeight" name="data_bagged" placeholder="Enter Bagged Weight"></input>
+                   <label for="nakedWeight">Naked Weight: </label>
+                   <input id="nakedWeight" name="data_naked" placeholder="Enter Naked Weight"></input>
+                   </fieldset>
+                   <button type="submit" id="subPrimalSubmit">Submit</button>
+                   <button type="clear" id="subPrimalClear">Reset</button>
+               </form>
+           </section>
+           <section class="panel two">
+             <h3>Cut Price Data</h3>
+              <form class="cut-entry" id="secondaryForm">
+                  <fieldset>
+                      <legend>Add A New Cut</legend>
+                      <label for="cutName">Cut Name: </label>
+                      <input type="text" id="cutName" name="data_cutName" placeholder="Enter Cut Name: ">
+                      <label for="cutWeight">Cut Weight: </label>
+                      <input type="text" id="cutWeight" name="data_cutWeight" placeholder="Enter Cut Weight">
+                      <label for="cutPrice">Cut Price / LB: </label>
+                      <input type="text" id="cutPrice" name="data_cutPrice" placeholder="Enter Cut Price / Lb">
+                  </fieldset>
+                  <button type="submit" id="cutSubmit">Add Cut</button>
+                  <button type="clear" id="cutClear">Clear Cuts</button>
+              </form>
+               
+           </section>
+           <section class="panel three">
+             <div class="cutList">
+                 <h3>Cut List</h3>
+                 
+             </div>
+              <h3>Returned Data</h3>
+              <div class="yieldToPrimal">
+                  <h4>Yield To Primal</h4>
+                  100%
+              </div>
+              <div class="displayRetailValue">
+                  <h4>Retail Value</h4>
+              </div>               
+           </section>
+       </main>
+   </div>
+    <script src="assets/scripts/meatYield.js"></script>
+</body>
+</html>
