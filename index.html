@@ -9,6 +9,7 @@
 <body>
    <div class="wrapper">
        <main class="main-content">
+         <div class="row">
            <section class="panel one">
               <h3>Sub Primal Data</h3>
                <form class="form-entry" id="primaryForm">
@@ -42,22 +43,78 @@
                   <button type="submit" id="cutSubmit">Add Cut</button>
                   <button type="clear" id="cutClear">Clear Cuts</button>
               </form>
-               
+
            </section>
            <section class="panel three">
-             <div class="cutList">
-                 <h3>Cut List</h3>
-                 
-             </div>
-              <h3>Returned Data</h3>
-              <div class="yieldToPrimal">
-                  <h4>Yield To Primal</h4>
-                  100%
-              </div>
-              <div class="displayRetailValue">
-                  <h4>Retail Value</h4>
-              </div>               
+             <header><h3>Primal List</h3></header>
+             <div class="primalList"></div>
+             <div class="cutList"><h4>Cut List</h4></div>
+             </section>
+           </div>
+           <div class="row">
+           <section class="panel four">
+             <header><h4>Yield To Primal</h4></header>
+             <span id="yieldToPrimal">100%</span>
            </section>
+           <section class="panel five">
+             <header><h4>Retail Value</h4>
+               <span id="displayRetailValue">$100.00</span></section>
+             <section class="panel six">
+               <header><h4>Potential Margin</h4></header>
+               <span id="displayMargin"></span>
+             </section>
+             <section class="panel seven">
+               <header>
+                 <h4>Waste Metrics</h4>
+             </header>
+           <span id="wasteCost"></span>
+           <span id="wasteWeight"></span>
+           </section>
+           <section class="panel eight">
+             <header>
+               <h4>Total Cost: </h4>
+             </header>
+             <span id="totalCost"></span>
+             <h4>Gross Profit</h4>
+             <span id="displayGrossProfit"></span>
+
+             <table class="tableData">
+               <tr>
+                 <th></th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Price</th>
+                 <th scope="col">Weight</th>
+                 <th scope="col">Yield %</th>
+                 <th scope="col">Cost Of Cut:</th>
+               </tr>
+               <tr>
+                 <th scope="row">Cut 1: </th>
+                 <td>T Bone</td>
+                 <td>14.99</td>
+                 <td>15.93</td>
+                 <td> 50% </td>
+                 <td>$2.55 / LB</td>
+               </tr>
+               <tr>
+                 <th scope="row">Cut 2: </th>
+                 <td>Stew Meat</td>
+                 <td>6.99</td>
+                 <td>2.00</td>
+                 <td>50%</td>
+                 <td>$2.55 / LB</td>
+               </tr>
+               <tr>
+                 <th scope="row">Cut 3: </th>
+                 <td>Grind</td>
+                 <td>4.99</td>
+                 <td>1.24</td>
+                 <td>50%</td>
+                 <td>$2.55 / LB</td>
+               </tr>
+             </table>
+
+           </section>
+           </div>
        </main>
    </div>
     <script src="assets/scripts/meatYield.js"></script>

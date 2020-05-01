@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /*************
@@ -24,18 +25,24 @@ html, body {
     padding: 0 30px;
 
 }
+.row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
 
 .main-content {
-    align-items: flex-start;  
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+margin: 0;
+padding: 0;
 }
 
 .panel {
     box-shadow: 0 0 15px 2px rgba(0, 0 ,0, 0.5);
-    margin: 40px auto;
+    height: 250px;
+    margin: 40px 20px;
 }
 
 .panel h3 {
@@ -43,8 +50,38 @@ html, body {
     text-align: center;
 }
 
-one, two, three {
-    flex: 1 500px;
+.panel ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+.panel ul li {
+  padding-left: 0;
+}
+
+.one, .two, .three {
+    flex: 1 350px;
+    height: 500px;
+}
+
+.four, .five, .six {
+  max-height: 100px;
+  width: 150px;
+}
+
+.tableData td {
+  padding: 1em 1.5em;
+}
+
+.cutList h4 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#wasteCost, wasteWeight {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 
@@ -81,7 +118,7 @@ one, two, three {
 *****************/
 
 .form-entry {
-    width: 100%;    
+    width: 100%;
 }
 
 label, input {
@@ -95,5 +132,5 @@ button {
     float: left;
     margin: 20px auto;
     width: 50%;
-    
+
 }
