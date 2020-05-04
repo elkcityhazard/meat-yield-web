@@ -10,27 +10,36 @@ const subPrimalNakedWeight = document.getElementById('nakedWeight');
 const yieldToPrimalDiv = document.getElementById('yieldToPrimal');
 const displayRetailValue = document.getElementById('displayRetailValue');
 const displayMargin = document.getElementById('displayMargin');
+let displayTotalCost = document.getElementById('totalCost');
 
 let cutName = document.getElementById('cutName');
 let cutWeight = document.getElementById('cutWeight');
 let cutPrice = document.getElementById('cutPrice');
+//let totalYield = document.getElementById('totalYield').textContent = '';
 
 let cutList = new Array();
 let html;
+let counter = 0;
+
 
 
 /************
 **Functions**
 *************/
 
-init();
 
-function calcNakedCost(apc, naked, bagged) {
+
+function calcNakedCost() {
+    let apc = Number(subPrimalAPC.value);
+    let naked = Number(subPrimalNakedWeight.value);
+    let bagged = Number(subPrimalBaggedWeight.value);
     return parseFloat(apc) / (parseFloat(naked) / parseFloat(bagged));
 }
 
-function calcTotalCost(apc, bagged) {
-    return parseFloat(apc) * parseFloat(bagged);
+function calcTotalCost() {
+    let apc = Number(subPrimalAPC.value);
+    let bagged = Number(subPrimalBaggedWeight.value);
+    return parseFloat(apc * bagged);
 }
 
 function yieldToPrimal() {
@@ -38,10 +47,10 @@ function yieldToPrimal() {
     let yield;
     weights = 0;
      for (let i = 0; i < cutList.length; i++) {
-         weights += parseFloat(cutList[i].meatCutWeight);
+         weights = parseFloat(cutList[i].meatCutWeight);
          yield = parseFloat(weights) / parseFloat(subPrimalNakedWeight.value);
      }
-    return parseFloat(yield);
+    return parseFloat(yield * 100);
 
 }
 
@@ -76,7 +85,7 @@ function calcWasteWeight() {
   return parseFloat(weight);
 }
 
-function grossIncome(retail, cogs) {
+function grossIncome() {
     retail = retailValue();
     cogs = calcTotalCost(subPrimalAPC.value, subPrimalBaggedWeight.value);
     parseFloat(retail);
@@ -105,9 +114,16 @@ document.getElementById('primaryForm').addEventListener('submit', function(e) {
         `;
 
     document.querySelector('.primalList').innerHTML += html;
-    console.log('naked cost: ' + calcNakedCost(cost, naked, bagged).toFixed(2));
-    console.log('Primal Total Cost: ' + calcTotalCost(cost, bagged).toFixed(2));
+
+    //  Display Indivual Properties Of Subprimal
+    document.getElementById('displayBaggedWeight').textContent = subPrimalBaggedWeight.value;
+    document.getElementById('displayNakedWeight').textContent = subPrimalNakedWeight.value;
+    document.getElementById('displayAPC').textContent = subPrimalAPC.value;
+    document.getElementById('displayNakedCost').textContent = calcNakedCost().toFixed(2);
+
+
 });
+
 
 document.getElementById('secondaryForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -121,35 +137,75 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
         meatCutPrice: price
     };
 
+
+    //  Push Objects to cutList
+
     cutList.push(meatCut);
-    console.log(cutList);
-    console.log('The Yield To Primal is: ' + (yieldToPrimal() * 100).toFixed(2) + '\%');
-    document.getElementById('totalCost').textContent = 'The Total Cost Of Primal: $ ' + Number(calcTotalCost(subPrimalAPC.value, subPrimalBaggedWeight.value).toFixed(2));
-    console.log('The total possible margin is: ' + calcMargin().toFixed(2) + '\%');
 
-    document.querySelector('#yieldToPrimal').textContent = (yieldToPrimal() * 100).toFixed(2) + '\%';
-    document.querySelector('#displayRetailValue').textContent = 'Total Retail Value: $' + retailValue();
-    displayMargin.textContent = calcMargin().toFixed(2) + '\%';
-    document.getElementById('wasteCost').textContent = 'Dollar Amount Waste \$' + calcWaste().toFixed(2);
-    document.getElementById('wasteWeight').textContent = 'Waste Weight: ' + calcWasteWeight().toFixed(2) + ' lbs';
-    document.getElementById('displayGrossProfit').textContent = 'Gross Profit: $' + grossIncome().toFixed(2);
-    for (let i = 0; i < cutList.length; i++) {
-    cutHTML =  `
-            <ul>
-            <li>Cut Name: ${cutList[i].meatCutName}</li>
-            <li>Cut Weight: ${cutList[i].meatCutWeight}</li>
-            <li>Cut Price: ${cutList[i].meatCutPrice}</li>
-            </ul>
 
-            `;
-    };
+    // for (let i = 0; i < cutList.length; i++) {
 
-    document.querySelector('.cutList').innerHTML += cutHTML;
+      let newTR = document.createElement('tr');
+      newTR.setAttribute('id', 'startPosition-' + counter);
+      document.querySelector('.tableData').appendChild(newTR);
 
+
+    let newTH = document.createElement('th');
+    newTH.setAttribute('scope', 'row');
+    newTH.setAttribute('id', 'cut-' + counter);
+    let thText = document.createTextNode('Cut ' + (counter + 1) + ': ');
+    newTH.appendChild(thText);
+    let startPosition = document.getElementById('startPosition-' + counter);
+    startPosition.appendChild(newTH);
+
+    let newTD = document.createElement('td');
+    newTD.setAttribute('id', 'displayName-' + counter);
+    let textTD = document.createTextNode(meatCut.meatCutName);
+    newTD.append(textTD);
+    startPosition.appendChild(newTD);
+
+     newTD = document.createElement('td');
+     newTD.setAttribute('id', 'displayPrice-' + counter);
+     textTD = document.createTextNode(meatCut.meatCutPrice);
+     newTD.append(textTD);
+     startPosition.appendChild(newTD);
+
+     newTD = document.createElement('td');
+     newTD.setAttribute('id', 'displayWeight-' + counter);
+     textTD = document.createTextNode(meatCut.meatCutWeight);
+     newTD.append(textTD);
+     startPosition.appendChild(newTD);
+
+     newTD = document.createElement('td');
+     newTD.setAttribute('id', 'displayYield-' + counter);
+     textTD = document.createTextNode(yieldToPrimal().toFixed(2) + '%');
+     newTD.append(textTD);
+     startPosition.appendChild(newTD);
+
+     newTD = document.createElement('td');
+     newTD.setAttribute('id', 'displayCostOfCut-' + counter);
+     textTD = document.createTextNode('TBD');
+     newTD.append(textTD);
+     startPosition.appendChild(newTD);
+
+     newTD = document.createElement('td');
+     newTD.setAttribute('id', 'displayRetailPrice-' + counter);
+     textTD = document.createTextNode(retailValue().toFixed(2));
+     newTD.append(textTD);
+     startPosition.appendChild(newTD);
+// }
+
+
+
+    //document.querySelector('.cutList').innerHTML += cutHTML;
+/*
     cutName.value = '';
     cutPrice.value = '';
     cutWeight.value = '';
-})
+
+    */
+counter++;
+});
 
 
 
@@ -158,6 +214,3 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
 /************************************
 **Init Function At Bottom Baby :-) **
 *************************************/
-function init() {
-    yieldToPrimalDiv.textContent = '';
-}

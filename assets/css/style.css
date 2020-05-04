@@ -59,9 +59,13 @@ padding: 0;
   padding-left: 0;
 }
 
-.one, .two, .three {
+.one, .two {
     flex: 1 350px;
     height: 500px;
+}
+
+.three {
+    flex: .5 100px;
 }
 
 .four, .five, .six {
@@ -69,8 +73,22 @@ padding: 0;
   width: 150px;
 }
 
+.seven {
+  height: initial;
+  width: initial;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em 1.5em;
+    text-align: center;
+}
+
+.tableData {
+    margin: 10px auto;
+}
+
 .tableData td {
   padding: 1em 1.5em;
+  text-align: center;
 }
 
 .cutList h4 {
