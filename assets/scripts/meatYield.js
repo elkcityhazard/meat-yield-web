@@ -186,8 +186,8 @@ document.getElementById('primaryForm').addEventListener('submit', function(e) {
   document.querySelector('.primalList').innerHTML += html;
 
   //  Display Indivual Properties Of Subprimal
-  document.getElementById('displayBaggedWeight').textContent = subPrimalBaggedWeight.value;
-  document.getElementById('displayNakedWeight').textContent = subPrimalNakedWeight.value;
+  document.getElementById('displayBaggedWeight').textContent = subPrimalBaggedWeight.value + 'lbs.';
+  document.getElementById('displayNakedWeight').textContent = subPrimalNakedWeight.value ;
   document.getElementById('displayAPC').textContent = subPrimalAPC.value;
   document.getElementById('displayNakedCost').textContent = calcNakedCost().toFixed(2);
 
