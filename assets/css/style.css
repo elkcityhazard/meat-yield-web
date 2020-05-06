@@ -17,12 +17,15 @@ h1, h2, h3, h4, h5, h6 {
 html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 .wrapper {
-    margin: 0;
+    display: block;
+    margin: 0 auto;
     min-height: 100vh;
     padding: 0 30px;
+    width: 968px;
 
 }
 .row {
@@ -30,19 +33,20 @@ html, body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
 .main-content {
 margin: 0;
 padding: 0;
+    width: 100%;
 }
-
 .panel {
     box-shadow: 0 0 15px 2px rgba(0, 0 ,0, 0.5);
     height: 250px;
     margin: 40px 20px;
+    width: 100%;
 }
 
 .panel h3 {
@@ -59,35 +63,40 @@ padding: 0;
   padding-left: 0;
 }
 
-.one, .two {
-    flex: 1 350px;
+.one, .two, .three {
+    flex: 1 ;
     height: 500px;
 }
 
-.three {
-    flex: .5 100px;
-}
 
 .four, .five, .six {
   max-height: 100px;
-  width: 150px;
 }
 
 .seven {
-  height: initial;
-  width: initial;
-    width: 100%;
     margin: 0 auto;
     padding: 1em 1.5em;
     text-align: center;
+    overflow-x: scroll;
+    overflow-y: visible;
+    height: auto;
 }
 
 .tableData {
+/*    border-collapse: collapse;*/
+    display: block;
     margin: 10px auto;
+    width: 100%;
 }
+
 
 .totalDisplay {
     margin: 10px auto;
+    width: 100%;
+}
+
+.totalDisplay td {
+    padding: 1em 1.5em;
 }
 
 .tableData td {
@@ -146,6 +155,7 @@ padding: 0;
 label, input {
     display: block;
     margin: 10px auto;
+    max-width: 200px;
     width: 50%;
 }
 

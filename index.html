@@ -2,16 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Andrew M McCall">
+    <meta name="description" content="A fast, no-frills, easy meat cutting yield test calculator.  Gross Income, Net Income, Cost, Margin, Yield are all shown.">
+    <meta name="keywords" content="meat calculator, butcher yield test, meat cutting yield yest, butcher calculator, meat costing">
     <title>Meat Cut Test Utility</title>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
 <body>
    <div class="wrapper">
+      <header><h1>Meat Cutting Yield Calculator</h1>
+              <h2>By: <a href="https://andrew-mccall.com/" title="Andrew M Mcall">Andrew M McCall</a></h2></header>
        <main class="main-content">
          <div class="row">
            <section class="panel one">
-              <h3>Sub Primal Data</h3>
+              <h3>Meat Sub Primal Info</h3>
                <form class="form-entry" id="primaryForm">
                   <fieldset>
                   <legend>Enter Subprimal Information</legend>
@@ -29,7 +34,7 @@
                </form>
            </section>
            <section class="panel two">
-             <h3>Cut Price Data</h3>
+             <h3>Cut Pricing Info</h3>
               <form class="cut-entry" id="secondaryForm">
                   <fieldset>
                       <legend>Add A New Cut</legend>
@@ -46,7 +51,7 @@
 
            </section>
            <section class="panel three">
-             <header><h3>Primal List</h3></header>
+             <header><h3>SubPrimal Info </h3></header>
              <div class="primalList"></div>
             </section>
            </div>

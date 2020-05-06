@@ -61,7 +61,7 @@ function yieldToPrimal() {
   for (let i = 0; i < cutList.length; i++) {
     weights = parseFloat(cutList[i].meatCutWeight);
   }
-    
+
     yield = parseFloat(weights) / parseFloat(subPrimalNakedWeight.value);
     cutListYield.push(yield);
   return parseFloat(yield* 100);
@@ -72,6 +72,20 @@ function yieldToPrimalTotal() {
   let yield = cutListYield.reduce((a,b) => parseFloat(a) + parseFloat(b));
     Number(yield);
     return yield.toFixed(2);
+}
+
+function cutRetailValue() {
+    let retail;
+  let weight;
+  let total;
+  total = 0;
+  for (let i = 0; i < cutList.length; i++) {
+    weight = cutList[i].meatCutWeight;
+    retail = cutList[i].meatCutPrice;
+    total = parseFloat(weight) * parseFloat(retail);
+
+  };
+  return parseFloat(total.toFixed(2));
 }
 
 function retailValue() {
@@ -97,7 +111,7 @@ function calcMargin() {
 
 function calcWaste() {
   return parseFloat(1 - yieldToPrimal()) * parseFloat(calcTotalCost(subPrimalAPC.value, subPrimalBaggedWeight.value));
-    
+
 }
 
 function calcWasteWeight() {
@@ -142,14 +156,17 @@ function calcCutMargin() {
 
 function calcTotalMargin() {
     let margin = parseFloat(netIncome()) / parseFloat(retailValue());
-    return margin.toFixed(2) * 100;
+    return (margin * 100).toFixed(2);
 }
 /******************
  **Event Listeners**
  *******************/
 
- // get the entered values from the sub primal and display them.
+if (window.innerWidth < 768 ) {
+    alert('Phones and tablets are currently not supported.  I\'m working on it! ');
+} else {
 
+ // get the entered values from the sub primal and display them.
 document.getElementById('primaryForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const name = subPrimalName.value;
@@ -223,6 +240,7 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
   newTD.setAttribute('id', 'displayPrice-' + counter);
   textTD = document.createTextNode(meatCut.meatCutPrice);
   newTD.append(textTD);
+  newTD.textContent += '\/lb\.';
   startPosition.appendChild(newTD);
 
   //  display cut weight
@@ -230,13 +248,14 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
   newTD.setAttribute('id', 'displayWeight-' + counter);
   textTD = document.createTextNode(meatCut.meatCutWeight);
   newTD.append(textTD);
+  newTD.textContent += ' lbs\.'
   startPosition.appendChild(newTD);
     cutListWeights.push(meatCut.meatCutWeight);
 
   //  display cut yield
   newTD = document.createElement('td');
   newTD.setAttribute('id', 'displayYield-' + counter);
-  textTD = document.createTextNode(yieldToPrimal().toFixed(2) + '%');
+  textTD = document.createTextNode(yieldToPrimal().toFixed(2) + ' %');
   newTD.append(textTD);
   startPosition.appendChild(newTD);
 
@@ -250,7 +269,8 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
   //  display retail price of cut
   newTD = document.createElement('td');
   newTD.setAttribute('id', 'displayRetailPrice-' + counter);
-  textTD = document.createTextNode(retailValue().toFixed(2));
+  newTD.textContent = '$'
+  textTD = document.createTextNode(cutRetailValue().toFixed(2));
   newTD.append(textTD);
   allRetail.push(newTD.textContent);
   startPosition.appendChild(newTD);
@@ -258,28 +278,28 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
   //  display cut margin
   newTD = document.createElement('td');
   newTD.setAttribute('id', 'displayCutMargin-' + counter);
-  textTD = document.createTextNode(calcCutMargin());
+  textTD = document.createTextNode(calcCutMargin() + ' %');
   newTD.append(textTD);
   startPosition.appendChild(newTD);
-//  cutName.value = '';
-//  cutPrice.value = '';
-//  cutWeight.value = '';
-    
+ cutName.value = '';
+cutPrice.value = '';
+ cutWeight.value = '';
+
   displayGrossRetail.textContent = '$' + retailValue();
     displayNetRetail.textContent =  '$' + netIncome();
-    displayTotalCostTotal.textContent = calcTotalCost();
-    displayWasteWeight.textContent = calcWasteWeight();
-    displayTotalYield.textContent = yieldToPrimalTotal();
-    displayWasteDollars.textContent = calcWasteDollars();
-    displayExpectedMargin.textContent = calcTotalMargin() + '\%';
-        
+    displayTotalCostTotal.textContent = '$' + calcTotalCost();
+    displayWasteWeight.textContent = calcWasteWeight() + ' lbs\.';
+    displayTotalYield.textContent = (yieldToPrimalTotal() * 100) + '%';
+    displayWasteDollars.textContent = '$' + calcWasteDollars();
+    displayExpectedMargin.textContent = calcTotalMargin() + '%';
+
 
   //  increment the counter
   counter++;
 }
                                                           );
 
-
+};
 /************************************
  **Init Function At Bottom Baby :-) **
  *************************************/
