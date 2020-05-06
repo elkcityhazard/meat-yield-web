@@ -32,6 +32,7 @@ let cutListMargin = new Array();
 let allRetail = new Array();
 let html;
 let counter = 0;
+let re = /([a-z A-Z])/
 
 
 
@@ -167,7 +168,7 @@ document.getElementById('primaryForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const name = subPrimalName.value;
   const cost = subPrimalAPC.value;
-  const bagged = subPrimalBaggedWeight.value;
+  bagged = subPrimalBaggedWeight.value;
   const naked = subPrimalNakedWeight.value;
 
   html = `

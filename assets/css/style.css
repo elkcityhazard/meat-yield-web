@@ -183,7 +183,15 @@ button {
 
 @media screen and (min-width: 968px) {
   .wrapper {
-    max-width: 968px;
+    max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .tableData th, .tableData td {
+    min-width: 100px;
+  }
+
+  .totalDisplay th, .totalDisplay td {
+    min-width: 100px;
   }
 }
