@@ -1,57 +1,69 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /*************
 **Typography**
 **************/
-
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
+  margin: 20px auto;
+  padding: 0;
+  text-align: center;
 }
 
-
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-family: 18px;
 }
 
 .wrapper {
-    display: block;
-    margin: 0 auto;
-    min-height: 100vh;
-    padding: 0 30px;
-    width: 968px;
-
+  display: block;
+  margin: 0 auto;
+  max-width: 968px;
+  min-height: 100vh;
+  padding: 0 30px;
+  width: 100%;
 }
-.row {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+
+span.description {
+  display: block;
+  padding: 10px;
+  margin: 20px auto;
+  text-align: left;
   width: 100%;
 }
 
 .main-content {
-margin: 0;
-padding: 0;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
+
+.row {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
 .panel {
-    box-shadow: 0 0 15px 2px rgba(0, 0 ,0, 0.5);
-    height: 250px;
-    margin: 40px 20px;
-    width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
+  height: 250px;
+  margin: 40px 20px;
+  width: 100%;
 }
 
 .panel h3 {
-    margin: 40px auto;
-    text-align: center;
+  margin: 40px auto;
+  text-align: center;
 }
 
 .panel ul {
@@ -64,39 +76,52 @@ padding: 0;
 }
 
 .one, .two, .three {
-    flex: 1 ;
-    height: 500px;
+  flex: 1 100%;
+  height: 500px;
 }
-
 
 .four, .five, .six {
   max-height: 100px;
 }
 
 .seven {
-    margin: 0 auto;
-    padding: 1em 1.5em;
-    text-align: center;
-    overflow-x: scroll;
-    overflow-y: visible;
-    height: auto;
+  margin: 0 auto;
+  padding: 1em 1.5em;
+  text-align: center;
+  overflow-x: scroll;
+  overflow-y: visible;
+  height: auto;
 }
 
 .tableData {
-/*    border-collapse: collapse;*/
-    display: block;
-    margin: 10px auto;
-    width: 100%;
+  border-collapse: collapse;
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  overflow: auto;
 }
 
+.tableData th {
+  margin: 0;
+  padding: 1em 1.5em;
+  text-align: center;
+}
+
+.tableData td {
+  text-align: center;
+  width: 100%;
+}
 
 .totalDisplay {
-    margin: 10px auto;
-    width: 100%;
+  border-collapse: collapse;
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  overflow: auto;
 }
 
-.totalDisplay td {
-    padding: 1em 1.5em;
+.totalDisplay th {
+  padding: 1em 1.5em;
 }
 
 .tableData td {
@@ -115,54 +140,50 @@ padding: 0;
   width: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /****************
 **Form Styles****
 *****************/
-
 .form-entry {
-    width: 100%;
+  width: 100%;
 }
 
 label, input {
-    display: block;
-    margin: 10px auto;
-    max-width: 200px;
-    width: 50%;
+  display: block;
+  margin: 10px auto;
+  max-width: 200px;
+  width: 50%;
 }
 
 button {
-    display: block;
-    float: left;
-    margin: 20px auto;
-    width: 50%;
+  display: block;
+  float: left;
+  margin: 20px auto;
+  width: 50%;
+}
 
+@media screen and (min-width: 768px) {
+  .row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .one, .two, .three {
+    flex: 1;
+    height: 500px;
+  }
+
+  .four, .five, .six {
+    max-height: 100px;
+  }
+}
+
+@media screen and (min-width: 968px) {
+  .wrapper {
+    max-width: 968px;
+    margin: 0 auto;
+  }
 }

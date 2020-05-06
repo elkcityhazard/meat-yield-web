@@ -1,120 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Andrew M McCall">
-    <meta name="description" content="A fast, no-frills, easy meat cutting yield test calculator.  Gross Income, Net Income, Cost, Margin, Yield are all shown.">
-    <meta name="keywords" content="meat calculator, butcher yield test, meat cutting yield yest, butcher calculator, meat costing">
-    <title>Meat Cut Test Utility</title>
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andrew M McCall">
+  <meta name="description" content="A fast, no-frills, easy meat cutting yield test calculator.  Gross Income, Net Income, Cost, Margin, Yield are all shown.">
+  <meta name="keywords" content="meat calculator, butcher yield test, meat cutting yield yest, butcher calculator, meat costing">
+  <title>Meat Cut Test Utility</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
+
 <body>
-   <div class="wrapper">
-      <header><h1>Meat Cutting Yield Calculator</h1>
-              <h2>By: <a href="https://andrew-mccall.com/" title="Andrew M Mcall">Andrew M McCall</a></h2></header>
-       <main class="main-content">
-         <div class="row">
-           <section class="panel one">
-              <h3>Meat Sub Primal Info</h3>
-               <form class="form-entry" id="primaryForm">
-                  <fieldset>
-                  <legend>Enter Subprimal Information</legend>
-                   <label for="name">Name: </label>
-                   <input id="name" name="data_name" placeholder="Name Of Sub Primal"></input>
-                   <label for="apc">As Purchased Cost / LB: </label>
-                   <input id="apc" name="data_apc" placeholder="Enter As Purchased Cost / LB"></input>
-                   <label for="baggedWeight">Bagged Weight: </label>
-                   <input id="baggedWeight" name="data_bagged" placeholder="Enter Bagged Weight"></input>
-                   <label for="nakedWeight">Naked Weight: </label>
-                   <input id="nakedWeight" name="data_naked" placeholder="Enter Naked Weight"></input>
-                   </fieldset>
-                   <button type="submit" id="subPrimalSubmit">Submit</button>
-                   <button type="clear" id="subPrimalClear">Reset</button>
-               </form>
-           </section>
-           <section class="panel two">
-             <h3>Cut Pricing Info</h3>
-              <form class="cut-entry" id="secondaryForm">
-                  <fieldset>
-                      <legend>Add A New Cut</legend>
-                      <label for="cutName">Cut Name: </label>
-                      <input type="text" id="cutName" name="data_cutName" placeholder="Enter Cut Name: ">
-                      <label for="cutWeight">Cut Weight: </label>
-                      <input type="text" id="cutWeight" name="data_cutWeight" placeholder="Enter Cut Weight">
-                      <label for="cutPrice">Cut Price / LB: </label>
-                      <input type="text" id="cutPrice" name="data_cutPrice" placeholder="Enter Cut Price / Lb">
-                  </fieldset>
-                  <button type="submit" id="cutSubmit">Add Cut</button>
-                  <button type="clear" id="cutClear">Clear Cuts</button>
-              </form>
+  <div class="wrapper">
+    <header>
+      <h1>Meat Cutting Yield Calculator</h1>
+      <h2>By: <a href="https://andrew-mccall.com/" title="Andrew M Mcall" role="complementary">Andrew M McCall</a></h2>
+      <span class="description" role="description">A simple no-frills meat cutting cost calculator. This meat yield calculator takes prices per U.S. pound and weights in U.S. pounds and will return the cost and pricing information you need to accurately price your meat cuts.  A Great training tool for meat apprentices and business tool for managers.</span>
+      <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/elkcityhazard"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:19px !important;">Buy me
+          a coffee</span></a>
+    </header>
+    <main class="main-content">
+      <div class="row">
+        <section class="panel one">
+          <h3>Meat Sub Primal Info</h3>
+          <form class="form-entry" id="primaryForm">
+            <fieldset>
+              <legend>Enter Subprimal Information</legend>
+              <label for="name">Name: </label>
+              <input id="name" name="data_name" placeholder="Name Of Sub Primal"></input>
+              <label for="apc">As Purchased Cost / LB: </label>
+              <input id="apc" name="data_apc" placeholder="Enter As Purchased Cost / LB"></input>
+              <label for="baggedWeight">Bagged Weight / LB: </label>
+              <input id="baggedWeight" name="data_bagged" placeholder="Enter Bagged Weight"></input>
+              <label for="nakedWeight">Naked Weight / LB: </label>
+              <input id="nakedWeight" name="data_naked" placeholder="Enter Naked Weight"></input>
+            </fieldset>
+            <button type="submit" id="subPrimalSubmit">Submit</button>
+            <button type="clear" id="subPrimalClear">Reset</button>
+          </form>
+        </section>
+        <section class="panel two">
+          <h3>Cut Pricing Info</h3>
+          <form class="cut-entry" id="secondaryForm">
+            <fieldset>
+              <legend>Add A New Cut</legend>
+              <label for="cutName">Cut Name: </label>
+              <input type="text" id="cutName" name="data_cutName" placeholder="Enter Cut Name: ">
+              <label for="cutWeight">Cut Weight / LB: </label>
+              <input type="text" id="cutWeight" name="data_cutWeight" placeholder="Enter Cut Weight">
+              <label for="cutPrice">Cut Price / LB: </label>
+              <input type="text" id="cutPrice" name="data_cutPrice" placeholder="Enter Cut Price / Lb">
+            </fieldset>
+            <button type="submit" id="cutSubmit">Add Cut</button>
+            <button type="clear" id="cutClear">Clear Cuts</button>
+          </form>
 
-           </section>
-           <section class="panel three">
-             <header><h3>SubPrimal Info </h3></header>
-             <div class="primalList"></div>
-            </section>
-           </div>
-           <div class="row">
-           <section class="panel seven">
-               <header>
-                 <h4>Meat Metrics</h4>
-             </header>
-             <table class="tableData">
-                <tr>
-                  <th></th>
-                  <th scope="col">Bagged Weight: </th>
-                  <th scope="col">Naked Weight: </th>
-                  <th scope="col">As Purchased Cost: </th>
-                  <th scope="col">Naked Cost: </th>
-                </tr>
-                <tr scope="row">
-                 <th></th>
-                 <td id="displayBaggedWeight"> - </td>
-                 <td id="displayNakedWeight"> - </td>
-                 <td id ="displayAPC"> - </td>
-                 <td id="displayNakedCost"> - </td>
-                </tr>
-               <tr id="appendStart-0">
-                 <th></th>
-                 <th scope="col">Name</th>
-                 <th scope="col">Price</th>
-                 <th scope="col">Weight</th>
-                 <th scope="col">Yield %</th>
-                 <th scope="col">Cost $:</th>
-                 <th scope="col">Retail $:</th>
-                 <th scope="col">Margin %:</th>
-               </tr>
+        </section>
+        <section class="panel three">
+          <header>
+            <h3>SubPrimal Info </h3>
+          </header>
+          <div class="primalList"></div>
+        </section>
+      </div>
+      <div class="row">
+        <section class="panel seven">
+          <header>
+            <h4>Meat Metrics</h4>
+          </header>
+          <table class="tableData">
+            <tr>
+              <th></th>
+              <th scope="col">Bagged Weight: </th>
+              <th scope="col">Naked Weight: </th>
+              <th scope="col">As Purchased Cost: </th>
+              <th scope="col">Naked Cost: </th>
+            </tr>
+            <tr scope="row">
+              <th></th>
+              <td id="displayBaggedWeight"> - </td>
+              <td id="displayNakedWeight"> - </td>
+              <td id="displayAPC"> - </td>
+              <td id="displayNakedCost"> - </td>
+            </tr>
+            <tr id="appendStart-0">
+              <th></th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Yield %</th>
+              <th scope="col">Cost $:</th>
+              <th scope="col">Retail $:</th>
+              <th scope="col">Margin %:</th>
+            </tr>
 
-               </table>
+          </table>
 
-               <table class="totalDisplay">
+          <table class="totalDisplay">
 
-               <tr>
-                 <th></th>
-                 <th>Gross Retail: $</th>
-                 <th>Net Retail: $</th>
-                 <th>Total Cost: $</th>
-                 <th>Waste Weight:</th>
-                 <th>Total Yield: </th>
-                 <th>Waste Dollars: </th>
-                 <th>Expected Margin:</th>
-               </tr>
-               <tr>
-                 <th scope="row">Totals: </th>
-                 <td id="displayGrossRetail">$ - </td>
-                 <td id="displayNetRetail">$ </td>
-                 <td id="displayTotalCost">$ -</td>
-                 <td id="displayWasteWeight"> - </td>
-                 <td id="displayTotalYield">% - </td>
-                 <td id="displayWasteDollars">$ -</td>
-                 <td id="displayExpectedMargin">% - </td>
-               </tr>
-             </table>
-           </section>
-           </div>
-       </main>
-   </div>
-    <script src="assets/scripts/meatYield.js"></script>
+            <tr>
+              <th></th>
+              <th>Gross Retail: $</th>
+              <th>Net Retail: $</th>
+              <th>Total Cost: $</th>
+              <th>Waste Weight:</th>
+              <th>Total Yield: </th>
+              <th>Waste Dollars: </th>
+              <th>Expected Margin:</th>
+            </tr>
+            <tr>
+              <th scope="row">Totals: </th>
+              <td id="displayGrossRetail">$ - </td>
+              <td id="displayNetRetail">$ </td>
+              <td id="displayTotalCost">$ -</td>
+              <td id="displayWasteWeight"> - </td>
+              <td id="displayTotalYield">% - </td>
+              <td id="displayWasteDollars">$ -</td>
+              <td id="displayExpectedMargin">% - </td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="assets/scripts/meatYield.js"></script>
 </body>
+
 </html>
