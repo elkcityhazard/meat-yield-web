@@ -218,15 +218,17 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
       //  create new table sets to display information
       let newTR = document.createElement('tr');
       newTR.setAttribute('id', 'startPosition-' + counter);
-      document.querySelector('.tableData').appendChild(newTR);
+      let newTHead = document.createElement('thead');
+      document.querySelector('.tableData').appendChild(newTHead);
+      newTHead.appendChild(newTR);
 
       // display cut title and increment here
       let newTH = document.createElement('th');
-      newTH.setAttribute('scope', 'row');
+      newTH.setAttribute('scope', 'col');
       newTH.setAttribute('id', 'cut-' + counter);
       let thText = document.createTextNode('Cut ' + (counter + 1) + ': ');
       newTH.appendChild(thText);
-      let startPosition = document.querySelector('.tableData');
+      let startPosition = newTHead;
       startPosition.appendChild(newTH);
 
       //  display cut name

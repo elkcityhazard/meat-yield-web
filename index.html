@@ -3,14 +3,14 @@
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12576217-10"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12576217-10"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-12576217-10');
-</script>
+</script> -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,21 +19,21 @@
   <meta name="keywords" content="meat calculator, butcher yield test, meat cutting yield yest, butcher calculator, meat costing">
   <title>Meat Cut Test Utility</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+  <link href="/assets/css/materialize/css/materialize.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-  <div class="wrapper">
+  <div class="container">
     <header>
       <h1>Meat Cutting Yield Calculator</h1>
       <h2>By: <a href="https://andrew-mccall.com/" title="Andrew M Mcall" role="complementary">Andrew M McCall</a></h2>
-      <span class="description" role="description">A simple no-frills meat cutting cost calculator. This meat yield calculator takes prices per U.S. pound and weights in U.S. pounds and will return the cost and pricing information you need to accurately price your meat cuts.  A Great training tool for meat apprentices and business tool for managers.</span>
+      <span class="description " role="description">A simple no-frills meat cutting cost calculator. This meat yield calculator takes prices per U.S. pound and weights in U.S. pounds and will return the cost and pricing information you need to accurately price your meat cuts.  A Great training tool for meat apprentices and business tool for managers.</span>
       <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/elkcityhazard"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:19px !important;">Buy me
           a coffee</span></a>
     </header>
     <main class="main-content">
       <div class="row">
-        <section class="panel one">
+        <section class="card-panel hoverable">
           <h3>Meat Sub Primal Info</h3>
           <form class="form-entry" id="primaryForm">
             <fieldset>
@@ -47,11 +47,11 @@
               <label for="nakedWeight">Naked Weight / LB: </label>
               <input id="nakedWeight" name="data_naked" placeholder="Enter Naked Weight"></input>
             </fieldset>
-            <button type="submit" id="subPrimalSubmit">Submit</button>
-            <button type="clear" id="subPrimalClear">Reset</button>
+            <button type="submit" id="subPrimalSubmit" class="btn white green-text waves-effect waves-green">Submit</button>
+            <button type="clear" id="subPrimalClear" class="btn white green-text waves-effect waves-green">Reset</button>
           </form>
         </section>
-        <section class="panel two">
+        <section class="card-panel hoverable">
           <h3>Cut Pricing Info</h3>
           <form class="cut-entry" id="secondaryForm">
             <fieldset>
@@ -63,12 +63,12 @@
               <label for="cutPrice">Cut Price / LB: </label>
               <input type="text" id="cutPrice" name="data_cutPrice" placeholder="Enter Cut Price / Lb">
             </fieldset>
-            <button type="submit" id="cutSubmit">Add Cut</button>
-            <button type="clear" id="cutClear">Clear Cuts</button>
+            <button type="submit" id="cutSubmit" class="btn white green-text waves-effect waves-green">Add Cut</button>
+            <button type="clear" id="cutClear" class="btn white green-text waves-effect waves-green">Clear Cuts</button>
           </form>
 
         </section>
-        <section class="panel three">
+        <section class="card-panel hoverable">
           <header>
             <h3>SubPrimal Info </h3>
           </header>
@@ -76,12 +76,13 @@
         </section>
       </div>
       <div class="row">
-        <section class="panel seven">
+        <section class="card-panel hoverable">
           <header>
             <h4>Meat Metrics</h4>
           </header>
-          <table class="tableData">
-            <tr>
+          <table class="responsive-table striped highlight">
+            <tbody>
+            <tr scope="row">
               <th></th>
               <th scope="col">Bagged Weight: </th>
               <th scope="col">Naked Weight: </th>
@@ -95,8 +96,11 @@
               <td id="displayAPC"> - </td>
               <td id="displayNakedCost"> - </td>
             </tr>
-            <tr id="appendStart-0">
-              <th></th>
+          </tbody>
+        </table>
+        <table class="responsive-table striped highlight">
+          <thead>
+             <tr scope="row">
               <th scope="col">Name</th>
               <th scope="col">Price</th>
               <th scope="col">Weight</th>
@@ -105,31 +109,34 @@
               <th scope="col">Retail $:</th>
               <th scope="col">Margin %:</th>
             </tr>
-
+          </thead>
+          <tbody class="tableData">
+          </tbody>
           </table>
 
-          <table class="totalDisplay">
-
+          <table class="center totalDisplay responsive-table striped highlight">
+<tbody>
             <tr>
-              <th></th>
-              <th>Gross Retail: $</th>
-              <th>Net Retail: $</th>
-              <th>Total Cost: $</th>
-              <th>Waste Weight:</th>
-              <th>Total Yield: </th>
-              <th>Waste Dollars: </th>
-              <th>Expected Margin:</th>
+              <th scope="col"></th>
+              <th scope="col">Gross Retail: $</th>
+              <th scope="col">Net Retail: $</th>
+              <th scope="col">Total Cost: $</th>
+              <th scope="col">Waste Weight:</th>
+              <th scope="col">Total Yield: </th>
+              <th scope="col">Waste Dollars: </th>
+              <th scope="col">Expected Margin:</th>
             </tr>
             <tr>
               <th scope="row">Totals: </th>
-              <td id="displayGrossRetail">$ - </td>
-              <td id="displayNetRetail">$ </td>
-              <td id="displayTotalCost">$ -</td>
+              <td id="displayGrossRetail"> - </td>
+              <td id="displayNetRetail"> - </td>
+              <td id="displayTotalCost"> - </td>
               <td id="displayWasteWeight"> - </td>
-              <td id="displayTotalYield">% - </td>
-              <td id="displayWasteDollars">$ -</td>
-              <td id="displayExpectedMargin">% - </td>
+              <td id="displayTotalYield"> - </td>
+              <td id="displayWasteDollars"> - </td>
+              <td id="displayExpectedMargin"> - </td>
             </tr>
+          </tbody>
           </table>
         </section>
       </div>
