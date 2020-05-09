@@ -180,7 +180,7 @@ document.getElementById('primaryForm').addEventListener('submit', function(e) {
         </ul>
         `;
 
-  document.querySelector('.primalList').innerHTML += html;
+  // document.querySelector('.primalList').innerHTML += html;   //To Be Deleted
 
   //  Display Indivual Properties Of Subprimal
   document.getElementById('displayBaggedWeight').textContent = subPrimalBaggedWeight.value + 'lbs.';

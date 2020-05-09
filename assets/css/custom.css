@@ -1,26 +1,12 @@
-.tall {
+/* .tall {
   min-width: 450px;
 }
 
-table {
-  width: 100%;
-  margin-top: 0;
-}
 
 th, td {
-  min-width: 100px;
+  min-width: 150px;
   text-align: left !important;
 }
-
-table.totals {
-  height:450px;
-}
-
-table.totals th, table.totals tr {
-  width: 50%;
-  display: block;
-}
-
 
 
 .tableData {
@@ -29,15 +15,16 @@ table.totals th, table.totals tr {
 }
 
 .custom-section {
-  margin-tip: 40px;
-}
+  margin-top: 40px;
+} */
 
-.bmc-button img {height: 34px !important;
+.bmc-button img {
+  height: 34px !important;
   width: 35px !important;
   margin-bottom: 1px !important;
   box-shadow: none !important;
-  border: none !important
-  ;vertical-align: middle !important;
+  border: none !important;
+  vertical-align: middle !important;
 }
 .bmc-button{
   padding: 7px 10px 7px 10px !important;
@@ -48,7 +35,7 @@ table.totals th, table.totals tr {
   display:inline-flex !important;
   color:#ffffff !important;
   background-color:#5F7FFF !important;
-  border-radius: 5px !important;
+  border-radius: 5@media screen and (max-width: 500px) {px !important;
   border: 1px solid transparent !important;
   padding: 7px 10px 7px 10px !important;
   font-size: 22px !important;
@@ -68,4 +55,10 @@ table.totals th, table.totals tr {
     text-decoration: none !important;
     box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
     opacity: 0.85 !important;color:#ffffff !important;
+  }
+
+  @media screen and (min-width: 601px) {
+    th, td {
+      width: 75px;
+    }
   }
