@@ -171,17 +171,6 @@ document.getElementById('primaryForm').addEventListener('submit', function(e) {
   bagged = subPrimalBaggedWeight.value;
   const naked = subPrimalNakedWeight.value;
 
-  html = `
-        <ul>
-        <li>Name: ${name}</li>
-        <li>Cost: ${cost}</li>
-        <li>Bagged: ${bagged}</li>
-        <li>Naked: ${naked}</li>
-        </ul>
-        `;
-
-  // document.querySelector('.primalList').innerHTML += html;   //To Be Deleted
-
   //  Display Indivual Properties Of Subprimal
   document.getElementById('displayBaggedWeight').textContent = subPrimalBaggedWeight.value + 'lbs.';
   document.getElementById('displayNakedWeight').textContent = subPrimalNakedWeight.value;
@@ -223,39 +212,11 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
     let startPosition = document.querySelector('.tableData');
     startPosition.appendChild(newTR);
 
-
-    // display cut title and increment here
-    // let newTH = document.createElement('th');
-    // newTH.setAttribute('scope', 'col');
-    // newTH.setAttribute('id', 'cut-' + counter);
-    // let thText = document.createTextNode('Cut ' + (counter + 1) + ': ');
-    // newTH.appendChild(thText);
-    // newTR.appendChild(newTH);
-
-
-    //  display cut name
-    // let newTH = document.createElement('th');
-    // newTH.setAttribute('scope', 'col');
-    // newTH.setAttribute('id', 'name-' + counter);
-    // let thText = document.createTextNode('Name: ');
-    // thText =
-    // newTH.appendChild(thText);
-    // newTR.appendChild(newTH);
-
     let newTD = document.createElement('td');
     newTD.setAttribute('id', 'displayName-' + counter);
     let textTD = document.createTextNode(meatCut.meatCutName);
     newTD.append(textTD);
     newTR.appendChild(newTD);
-
-    //  display cut price
-    // newTH = document.createElement('th');
-    // newTH.setAttribute('scope', 'col');
-    // newTH.setAttribute('id', 'price-' + counter);
-    // thText = document.createTextNode('Price: ');
-    // newTH.appendChild(thText);
-    // newTR.appendChild(newTH);
-
 
     newTD = document.createElement('td');
     newTD.setAttribute('id', 'displayPrice-' + counter);
@@ -263,14 +224,6 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
     newTD.append(textTD);
     newTD.textContent += '\/lb\.';
     newTR.appendChild(newTD);
-
-    //  display cut weight
-    // newTH = document.createElement('th');
-    // newTH.setAttribute('scope', 'col');
-    // newTH.setAttribute('id', 'weight-' + counter);
-    // thText = document.createTextNode('Weight: ');
-    // newTH.appendChild(thText);
-    // newTR.appendChild(newTH);
 
 
     newTD = document.createElement('td');
@@ -281,13 +234,6 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
     newTR.appendChild(newTD);
     cutListWeights.push(meatCut.meatCutWeight);
 
-    //  display cut yield
-    // newTH = document.createElement('th');
-    // newTH.setAttribute('scope', 'col');
-    // newTH.setAttribute('id', 'yield-' + counter);
-    // thText = document.createTextNode('Yield: ');
-    // newTH.appendChild(thText);
-    // newTR.appendChild(newTH);
 
     newTD = document.createElement('td');
     newTD.setAttribute('id', 'displayYield-' + counter);
@@ -295,27 +241,12 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
     newTD.append(textTD);
     newTR.appendChild(newTD);
 
-    //display cost of cut
-    // newTH = document.createElement('th');
-    // newTH.setAttribute('scope', 'col');
-    // newTH.setAttribute('id', 'cost-' + counter);
-    // thText = document.createTextNode('Cost: ');
-    // newTH.appendChild(thText);
-    // newTR.appendChild(newTH);
 
     newTD = document.createElement('td');
     newTD.setAttribute('id', 'displayCostOfCut-' + counter);
     textTD = document.createTextNode(calcCutCost());
     newTD.append(textTD);
     newTR.appendChild(newTD);
-
-    //  display retail price of cut
-    // newTH = document.createElement('th');
-    // newTH.setAttribute('scope', 'col');
-    // newTH.setAttribute('id', 'retail-' + counter);
-    // thText = document.createTextNode('Retail: ');
-    // newTH.appendChild(thText);
-    // newTR.appendChild(newTH);
 
 
     newTD = document.createElement('td');
@@ -325,14 +256,6 @@ document.getElementById('secondaryForm').addEventListener('submit', function(e) 
     newTD.append(textTD);
     allRetail.push(newTD.textContent);
     newTR.appendChild(newTD);
-
-    //  display cut margin
-    // newTH = document.createElement('th');
-    // newTH.setAttribute('scope', 'col');
-    // newTH.setAttribute('id', 'margin-' + counter);
-    // thText = document.createTextNode('Margin: ');
-    // newTH.appendChild(thText);
-    // newTR.appendChild(newTH);
 
 
     newTD = document.createElement('td');
