@@ -3035,7 +3035,8 @@ td, th {
     vertical-align: top;
   }
   table.responsive-table th {
-    text-align: left;
+    text-align: left; 
+
   }
   table.responsive-table thead {
     display: block;

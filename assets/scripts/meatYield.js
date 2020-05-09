@@ -195,112 +195,168 @@ document.getElementById('primaryForm').addEventListener('submit', function(e) {
 
 document.getElementById('secondaryForm').addEventListener('submit', function(e) {
 
-    if (subPrimalAPC === '' || subPrimalName === '' || subPrimalBaggedWeight === '' || subPrimalNakedWeight === '') {
-      alert('Enter valid subprimal data.');
-    } else {
-      e.preventDefault();
-      let name = document.getElementById('cutName').value;
-      let weight = document.getElementById('cutWeight').value;
-      let price = document.getElementById('cutPrice').value;
+  if (subPrimalAPC === '' || subPrimalName === '' || subPrimalBaggedWeight === '' || subPrimalNakedWeight === '') {
+    alert('Enter valid subprimal data.');
+  } else {
+    e.preventDefault();
+    let name = document.getElementById('cutName').value;
+    let weight = document.getElementById('cutWeight').value;
+    let price = document.getElementById('cutPrice').value;
 
-      //  create a meat cut object and store some properties
-      let meatCut = {
-        meatCutName: name,
-        meatCutWeight: weight,
-        meatCutPrice: price
-      };
-
-
-      //  Push Objects to cutList
-
-      cutList.push(meatCut);
-
-      //  create new table sets to display information
-      let newTR = document.createElement('tr');
-      newTR.setAttribute('id', 'startPosition-' + counter);
-      let newTHead = document.createElement('thead');
-      document.querySelector('.tableData').appendChild(newTHead);
-      newTHead.appendChild(newTR);
-
-      // display cut title and increment here
-      let newTH = document.createElement('th');
-      newTH.setAttribute('scope', 'col');
-      newTH.setAttribute('id', 'cut-' + counter);
-      let thText = document.createTextNode('Cut ' + (counter + 1) + ': ');
-      newTH.appendChild(thText);
-      let startPosition = newTHead;
-      startPosition.appendChild(newTH);
-
-      //  display cut name
-      let newTD = document.createElement('td');
-      newTD.setAttribute('id', 'displayName-' + counter);
-      let textTD = document.createTextNode(meatCut.meatCutName);
-      newTD.append(textTD);
-      startPosition.appendChild(newTD);
-
-      //  display cut price
-      newTD = document.createElement('td');
-      newTD.setAttribute('id', 'displayPrice-' + counter);
-      textTD = document.createTextNode(meatCut.meatCutPrice);
-      newTD.append(textTD);
-      newTD.textContent += '\/lb\.';
-      startPosition.appendChild(newTD);
-
-      //  display cut weight
-      newTD = document.createElement('td');
-      newTD.setAttribute('id', 'displayWeight-' + counter);
-      textTD = document.createTextNode(meatCut.meatCutWeight);
-      newTD.append(textTD);
-      newTD.textContent += ' lbs\.'
-      startPosition.appendChild(newTD);
-      cutListWeights.push(meatCut.meatCutWeight);
-
-      //  display cut yield
-      newTD = document.createElement('td');
-      newTD.setAttribute('id', 'displayYield-' + counter);
-      textTD = document.createTextNode(yieldToPrimal().toFixed(2) + ' %');
-      newTD.append(textTD);
-      startPosition.appendChild(newTD);
-
-      //display cost of cut
-      newTD = document.createElement('td');
-      newTD.setAttribute('id', 'displayCostOfCut-' + counter);
-      textTD = document.createTextNode(calcCutCost());
-      newTD.append(textTD);
-      startPosition.appendChild(newTD);
-
-      //  display retail price of cut
-      newTD = document.createElement('td');
-      newTD.setAttribute('id', 'displayRetailPrice-' + counter);
-      newTD.textContent = '$'
-      textTD = document.createTextNode(cutRetailValue().toFixed(2));
-      newTD.append(textTD);
-      allRetail.push(newTD.textContent);
-      startPosition.appendChild(newTD);
-
-      //  display cut margin
-      newTD = document.createElement('td');
-      newTD.setAttribute('id', 'displayCutMargin-' + counter);
-      textTD = document.createTextNode(calcCutMargin() + ' %');
-      newTD.append(textTD);
-      startPosition.appendChild(newTD);
-      cutName.value = '';
-      cutPrice.value = '';
-      cutWeight.value = '';
-
-      displayGrossRetail.textContent = '$' + retailValue();
-      displayNetRetail.textContent = '$' + netIncome();
-      displayTotalCostTotal.textContent = '$' + calcTotalCost();
-      displayWasteWeight.textContent = calcWasteWeight() + ' lbs\.';
-      displayTotalYield.textContent = (yieldToPrimalTotal() * 100) + '%';
-      displayWasteDollars.textContent = '$' + calcWasteDollars();
-      displayExpectedMargin.textContent = calcTotalMargin() + '%';
+    //  create a meat cut object and store some properties
+    let meatCut = {
+      meatCutName: name,
+      meatCutWeight: weight,
+      meatCutPrice: price
+    };
 
 
-      //  increment the counter
-      counter++;
-    }
-    });
+    //  Push Objects to cutList
+
+    cutList.push(meatCut);
+
+    //  create new table sets to display information
+
+
+    let newTR = document.createElement('tr');
+    newTR.setAttribute('id', 'startPosition-' + counter);
+    let startPosition = document.querySelector('.tableData');
+    startPosition.appendChild(newTR);
+
+
+    // display cut title and increment here
+    // let newTH = document.createElement('th');
+    // newTH.setAttribute('scope', 'col');
+    // newTH.setAttribute('id', 'cut-' + counter);
+    // let thText = document.createTextNode('Cut ' + (counter + 1) + ': ');
+    // newTH.appendChild(thText);
+    // newTR.appendChild(newTH);
+
+
+    //  display cut name
+    // let newTH = document.createElement('th');
+    // newTH.setAttribute('scope', 'col');
+    // newTH.setAttribute('id', 'name-' + counter);
+    // let thText = document.createTextNode('Name: ');
+    // thText =
+    // newTH.appendChild(thText);
+    // newTR.appendChild(newTH);
+
+    let newTD = document.createElement('td');
+    newTD.setAttribute('id', 'displayName-' + counter);
+    let textTD = document.createTextNode(meatCut.meatCutName);
+    newTD.append(textTD);
+    newTR.appendChild(newTD);
+
+    //  display cut price
+    // newTH = document.createElement('th');
+    // newTH.setAttribute('scope', 'col');
+    // newTH.setAttribute('id', 'price-' + counter);
+    // thText = document.createTextNode('Price: ');
+    // newTH.appendChild(thText);
+    // newTR.appendChild(newTH);
+
+
+    newTD = document.createElement('td');
+    newTD.setAttribute('id', 'displayPrice-' + counter);
+    textTD = document.createTextNode(meatCut.meatCutPrice);
+    newTD.append(textTD);
+    newTD.textContent += '\/lb\.';
+    newTR.appendChild(newTD);
+
+    //  display cut weight
+    // newTH = document.createElement('th');
+    // newTH.setAttribute('scope', 'col');
+    // newTH.setAttribute('id', 'weight-' + counter);
+    // thText = document.createTextNode('Weight: ');
+    // newTH.appendChild(thText);
+    // newTR.appendChild(newTH);
+
+
+    newTD = document.createElement('td');
+    newTD.setAttribute('id', 'displayWeight-' + counter);
+    textTD = document.createTextNode(meatCut.meatCutWeight);
+    newTD.append(textTD);
+    newTD.textContent += ' lbs\.'
+    newTR.appendChild(newTD);
+    cutListWeights.push(meatCut.meatCutWeight);
+
+    //  display cut yield
+    // newTH = document.createElement('th');
+    // newTH.setAttribute('scope', 'col');
+    // newTH.setAttribute('id', 'yield-' + counter);
+    // thText = document.createTextNode('Yield: ');
+    // newTH.appendChild(thText);
+    // newTR.appendChild(newTH);
+
+    newTD = document.createElement('td');
+    newTD.setAttribute('id', 'displayYield-' + counter);
+    textTD = document.createTextNode(yieldToPrimal().toFixed(2) + ' %');
+    newTD.append(textTD);
+    newTR.appendChild(newTD);
+
+    //display cost of cut
+    // newTH = document.createElement('th');
+    // newTH.setAttribute('scope', 'col');
+    // newTH.setAttribute('id', 'cost-' + counter);
+    // thText = document.createTextNode('Cost: ');
+    // newTH.appendChild(thText);
+    // newTR.appendChild(newTH);
+
+    newTD = document.createElement('td');
+    newTD.setAttribute('id', 'displayCostOfCut-' + counter);
+    textTD = document.createTextNode(calcCutCost());
+    newTD.append(textTD);
+    newTR.appendChild(newTD);
+
+    //  display retail price of cut
+    // newTH = document.createElement('th');
+    // newTH.setAttribute('scope', 'col');
+    // newTH.setAttribute('id', 'retail-' + counter);
+    // thText = document.createTextNode('Retail: ');
+    // newTH.appendChild(thText);
+    // newTR.appendChild(newTH);
+
+
+    newTD = document.createElement('td');
+    newTD.setAttribute('id', 'displayRetailPrice-' + counter);
+    newTD.textContent = '$'
+    textTD = document.createTextNode(cutRetailValue().toFixed(2));
+    newTD.append(textTD);
+    allRetail.push(newTD.textContent);
+    newTR.appendChild(newTD);
+
+    //  display cut margin
+    // newTH = document.createElement('th');
+    // newTH.setAttribute('scope', 'col');
+    // newTH.setAttribute('id', 'margin-' + counter);
+    // thText = document.createTextNode('Margin: ');
+    // newTH.appendChild(thText);
+    // newTR.appendChild(newTH);
+
+
+    newTD = document.createElement('td');
+    newTD.setAttribute('id', 'displayCutMargin-' + counter);
+    textTD = document.createTextNode(calcCutMargin() + ' %');
+    newTD.append(textTD);
+    newTR.appendChild(newTD);
+    cutName.value = '';
+    cutPrice.value = '';
+    cutWeight.value = '';
+
+    displayGrossRetail.textContent = '$' + retailValue();
+    displayNetRetail.textContent = '$' + netIncome();
+    displayTotalCostTotal.textContent = '$' + calcTotalCost();
+    displayWasteWeight.textContent = calcWasteWeight() + ' lbs\.';
+    displayTotalYield.textContent = (yieldToPrimalTotal() * 100) + '%';
+    displayWasteDollars.textContent = '$' + calcWasteDollars();
+    displayExpectedMargin.textContent = calcTotalMargin() + '%';
+
+
+    //  increment the counter
+    counter++;
+  }
+});
 
 
 

@@ -3,7 +3,7 @@
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12576217-10"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12576217-10"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -16,10 +16,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Andrew M McCall">
   <meta name="description" content="A fast, no-frills, easy meat cutting yield test calculator.  Gross Income, Net Income, Cost, Margin, Yield are all shown.">
-  <meta name="keywords" content="meat calculator, butcher yield test, meat cutting yield yest, butcher calculator, meat costing">
-  <title>Meat Cut Test Utility</title>
+  <meta name="keywords" content="meat calculator, butcher yield test, meat cutting yield yest, butcher calculator, meat costing, kitchen yield test, butcher cut test, meat cut test">
+  <title>Meat Cut Test Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
   <link href="/assets/css/materialize/css/materialize.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/custom.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -27,9 +29,9 @@
     <header>
       <h1>Meat Cutting Yield Calculator</h1>
       <h2>By: <a href="https://andrew-mccall.com/" title="Andrew M Mcall" role="complementary">Andrew M McCall</a></h2>
-      <span class="description " role="description">A simple no-frills meat cutting cost calculator. This meat yield calculator takes prices per U.S. pound and weights in U.S. pounds and will return the cost and pricing information you need to accurately price your meat cuts.  A Great training tool for meat apprentices and business tool for managers.</span>
-      <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/elkcityhazard"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:19px !important;">Buy me
-          a coffee</span></a>
+      <span class="description " role="description">A simple no-frills meat cutting cost calculator. This meat yield calculator takes prices per U.S. pound and weights in U.S. pounds and will return the cost and pricing information you need to
+        accurately price your meat cuts. A Great training tool for meat apprentices and business tool for managers.</span>
+
     </header>
     <main class="main-content">
       <div class="row">
@@ -68,20 +70,11 @@
           </form>
 
         </section>
-        <section class="card-panel hoverable">
-          <header>
-            <h3>SubPrimal Info </h3>
-          </header>
-          <div class="primalList"></div>
-        </section>
       </div>
-      <div class="row">
-        <section class="card-panel hoverable">
-          <header>
-            <h4>Meat Metrics</h4>
-          </header>
-          <table class="responsive-table striped highlight">
-            <tbody>
+      <section class="card-panel hoverable">
+        <table class="responsive-table striped highlight">
+          <caption>Primal Info</caption>
+          <thead>
             <tr scope="row">
               <th></th>
               <th scope="col">Bagged Weight: </th>
@@ -89,6 +82,8 @@
               <th scope="col">As Purchased Cost: </th>
               <th scope="col">Naked Cost: </th>
             </tr>
+          </thead>
+          <tbody>
             <tr scope="row">
               <th></th>
               <td id="displayBaggedWeight"> - </td>
@@ -98,9 +93,12 @@
             </tr>
           </tbody>
         </table>
+      </section>
+      <section class="card-panel hoverable">
         <table class="responsive-table striped highlight">
+          <caption>Cut Information</caption>
           <thead>
-             <tr scope="row">
+            <tr>
               <th scope="col">Name</th>
               <th scope="col">Price</th>
               <th scope="col">Weight</th>
@@ -112,12 +110,14 @@
           </thead>
           <tbody class="tableData">
           </tbody>
-          </table>
+        </table>
+      </section>
 
-          <table class="center totalDisplay responsive-table striped highlight">
-<tbody>
+      <section class="card-panel hoverable">
+        <table class="totalDisplay responsive-table striped highlight totals">
+          <caption>Totals</caption>
+          <thead>
             <tr>
-              <th scope="col"></th>
               <th scope="col">Gross Retail: $</th>
               <th scope="col">Net Retail: $</th>
               <th scope="col">Total Cost: $</th>
@@ -126,8 +126,9 @@
               <th scope="col">Waste Dollars: </th>
               <th scope="col">Expected Margin:</th>
             </tr>
+          </thead>
+          <tbody>
             <tr>
-              <th scope="row">Totals: </th>
               <td id="displayGrossRetail"> - </td>
               <td id="displayNetRetail"> - </td>
               <td id="displayTotalCost"> - </td>
@@ -137,10 +138,13 @@
               <td id="displayExpectedMargin"> - </td>
             </tr>
           </tbody>
-          </table>
-        </section>
-      </div>
-    </main>
+        </table>
+      </section>
+  </div>
+  </main>
+  <footer>
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/elkcityhazard"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:28px !important;">Buy me a coffee</span></a>
+  </footer>
   </div>
   <script src="assets/scripts/meatYield.js"></script>
 </body>
